@@ -1,0 +1,5 @@
+﻿  04.c
+C:\Metaverse_01_LevelTest\Solution_04\04.c(12,7): warning C4013: 'srand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Metaverse_01_LevelTest\Solution_04\04.c(12,12): warning C4013: 'time'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Metaverse_01_LevelTest\Solution_04\04.c(19,21): warning C4013: 'rand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  Solution_04.vcxproj -> C:\Metaverse_01_LevelTest\Solution_01\x64\Debug\Solution_04.exe
