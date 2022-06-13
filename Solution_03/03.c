@@ -9,6 +9,7 @@ int main(void)
 		{
 			printf(" ");
 		}
+		// for ( int space = 0; space < (4 - turn); space++)
 		for (int star = 0; star < (turn*2+1); star++)
 		{
 			printf("*");
