@@ -22,7 +22,7 @@ int main()
 		int N = 0;
 		bool isExist = false;
 		do
-		{ 
+		{                                                                                                                                                                                            
 			//1. 값을 무작위로 뽑고 뽑은 값을 N이라 한다
 		
 			int N = (rand() % maxNum - minNum + 1) + minNum;

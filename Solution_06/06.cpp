@@ -24,9 +24,15 @@
 
 
 #include <iostream>
+#include <string>
 #include <sstream>
 
 using namespace std;
+
+class Deck
+{
+private:
+};
 
 	// 1 ~ 13  스페이드
 	// 14 ~ 26 : 클로버
