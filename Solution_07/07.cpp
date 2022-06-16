@@ -1,173 +1,29 @@
 #include <iostream>
+#include "07헤더.h"
 using namespace std;
-#define 빙고크기 10
 
 int main()
 {
-	//빙고게임 판 생성
+	// 세팅
+	BingoGame bingo;
+	bingo.Init();
 
-	int map[빙고크기][빙고크기] = { 0 };
-	bool arr[(빙고크기 * 빙고크기 +1)] = { false };
-	srand(time(NULL));
-	for (int j = 0; j < 빙고크기; j++)
+	while (false == bingo.IsCompleted())
 	{
-		for (int i = 0; i < 빙고크기; i++)
-		{
-			int num = 0;
+		system("cls");
 
-			do
-			{
-				num = rand() % (빙고크기 * 빙고크기) + 1;
-			} while (arr[num]);
+		//출력
+		bingo.print();
 
-			map[j][i] = num;
-			arr[num] = true;
-
-		}
-	}
-
-	int bingoCount = 0;
-
-	while (1)
-	{
-		for (int y = 0; y < 빙고크기; y++)
-		{
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[y][x] == 0)
-				{
-					cout  << "\t";
-				}
-				else
-				{
-					cout << map[y][x] << "\t";
-
-				}
-
-			}
-
-			cout << endl;
-		}
-
-		// 입출력 문구
-
-		cout << "현재 " << bingoCount << "줄의 빙고가 완성되었습니다" << endl;
 		cout << "숫자를 입력해주세요 :";
 		int input;
 		cin >> input;
 
-		// 사용자의 입력이 유효한지 판단 -> 오입력이라면 1번부터 다시 반복
-		if (input <= 0 || input > (빙고크기 * 빙고크기))
-		{
-			system("cls");
-		}
+		// djqepdlxm
+		bingo.Update(input);
 
-		// 4. 숫자를 지워준다
-		int isExit = false;
 
-		for (int y = 0; y < 빙고크기; y++)
-		{
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[y][x] == input)
-				{
-					map[y][x] = 0;
-					isExit = true;
 
-					break;
-				}
-			}
-
-			if (isExit)
-			{
-				break;
-			}
-		}
-
-		// 빙고 세기 
-
-		int count = 0;
-		
-
-		// 가로
-		for (int y = 0; y < 빙고크기; y++)
-		{
-			bool isBingo = true;
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[y][x] != 0)
-				{
-					isBingo = false;
-					break;
-				}
-			}
-			if (isBingo)
-			{
-				++count;
-			}
-		}
-
-		//세로
-		for (int y = 0; y < 빙고크기; y++)
-		{
-			bool isBingo = true;
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[x][y] != 0)
-				{
-					isBingo = false;
-					break;
-				}
-			}
-			if (isBingo)
-			{
-				++count;
-			}
-		}
-
-		//왼쪽 대각선 
-		{
-			bool isBingo = true;
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[x][x] != 0)
-				{
-					isBingo = false;
-					break;
-				}
-			}
-			if (isBingo)
-			{
-				++count;
-			}
-		}
-
-		//오른쪽 대각선
-		{
-			bool isBingo = true;
-			for (int x = 0; x < 빙고크기; x++)
-			{
-				if (map[x][(빙고크기-1)-x] != 0)
-				{
-					isBingo = false;
-					break;
-				}
-			}
-			if (isBingo)
-			{
-				++count;
-			}
-		}
-
-		bingoCount = count;
-
-		// 6. 반복
-		system("cls");
-
-		if (bingoCount == (빙고크기 * 2 + 2))
-		{
-			cout << "완성!";
-			break;
-		}
 	}
+		// cout << "현재 " << bingoCount << "줄의 빙고가 완성되었습니다" << endl;
 }
