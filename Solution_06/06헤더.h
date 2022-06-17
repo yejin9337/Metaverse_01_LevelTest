@@ -6,9 +6,9 @@ using namespace std;
 
 bool isUseCard[53] = { false };
 int remainingCard = 53;
-
 class deck
 {
+	
 public:
 	deck() = default;
 	~deck() = default;
@@ -17,6 +17,7 @@ public:
 
 	bool make()
 	{
+		
 		//뽑기 전에 현재 뽑을 수 있는 카드가 7장이 넘는지 판단
 		if (remainingCard < 7)
 		{
@@ -71,3 +72,4 @@ private:
 	int _deck[7] = { -1 };
 };
 
+bool isUseCard[53] = { false };
